@@ -1,3 +1,240 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lesson 3 Activity</title>
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #263238;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .activity {
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #455a64;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #263238;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .exercise {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            box-sizing: border-box;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            border: 1px solid #b0bec5;
+            border-radius: 6px;
+        }
+
+        .hint {
+            background-color: #eceff1;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="activity">
+
+    <h2>📝 Lesson 3 Worksheet</h2>
+
+    <p>
+        When you have finished reading the theory and examples on the
+        Canvas page, click the button below to begin the exercises.
+    </p>
+
+    <button onclick="showExercises()">
+        ✅ I've finished reading – Show Exercises
+    </button>
+
+
+    <!-- EXERCISES ARE HIDDEN -->
+
+    <div id="exercises" class="hidden">
+
+        <div class="exercise">
+
+            <h3>Exercise 1 – Requirements</h3>
+
+            <p>
+                What is a requirement in a data solution?
+            </p>
+
+            <textarea
+                placeholder="Write your answer here...">
+            </textarea>
+
+        </div>
+
+
+        <div class="exercise">
+
+            <h3>Exercise 2 – Alternative Designs</h3>
+
+            <p>
+                Think of two different ways that data could be collected
+                to investigate the question:
+            </p>
+
+            <p>
+                <strong>
+                    Does the amount of sleep a student gets affect
+                    their reaction time?
+                </strong>
+            </p>
+
+            <p>
+                Describe your first possible design.
+            </p>
+
+            <textarea
+                placeholder="Describe Design 1...">
+            </textarea>
+
+            <p>
+                Describe your second possible design.
+            </p>
+
+            <textarea
+                placeholder="Describe Design 2...">
+            </textarea>
+
+        </div>
+
+
+        <div class="exercise">
+
+            <h3>Exercise 3 – Compare the Designs</h3>
+
+            <p>
+                Compare your two designs against the requirements
+                of the investigation.
+            </p>
+
+            <p>
+                Which design would be easier to complete?
+                Which might provide more useful data?
+            </p>
+
+            <textarea
+                placeholder="Compare your two designs...">
+            </textarea>
+
+            <button onclick="showHint()">
+                💡 Show Hint
+            </button>
+
+            <div id="hint" class="hint hidden">
+
+                Think about:
+                <ul>
+                    <li>How much data will be collected?</li>
+                    <li>How long will it take?</li>
+                    <li>Will the data help answer the question?</li>
+                    <li>How reliable might the data be?</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="exercise">
+
+            <h3>Exercise 4 – Select a Preferred Design</h3>
+
+            <p>
+                Which of your two designs would you choose?
+            </p>
+
+            <textarea
+                placeholder="State which design you would choose and explain why...">
+            </textarea>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function showExercises() {
+
+        document.getElementById("exercises")
+            .classList.remove("hidden");
+
+        document.getElementById("exercises")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    function showHint() {
+
+        document.getElementById("hint")
+            .classList.remove("hidden");
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
