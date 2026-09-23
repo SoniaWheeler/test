@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Interactive Activity</title>
+</head>
+<body>
+
+<h2>Try it!</h2>
+
+<button onclick="showMessage()">Click Me</button>
+
+<p id="output"></p>
+
+<script>
+function showMessage() {
+    document.getElementById("output").textContent =
+        "Well done! You ran some JavaScript.";
+}
+</script>
+
+</body>
+</html>
