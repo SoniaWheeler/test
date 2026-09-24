@@ -1,86 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 3 Test</title>
+
+    <title>Google Sheet Test</title>
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8fafc;
+            background: #f8fafc;
             padding: 30px;
-            color: #172554;
         }
 
         .box {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: auto;
             background: white;
-            border: 2px solid #bae6fd;
-            border-radius: 12px;
             padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #bae6fd;
         }
 
-        h1 {
-            color: #172554;
-        }
-
-        input,
-        textarea {
+        input {
             width: 100%;
             padding: 10px;
-            margin-top: 8px;
-            margin-bottom: 20px;
+            margin: 10px 0 20px 0;
             box-sizing: border-box;
         }
 
         button {
-            background-color: #172554;
+            padding: 12px 20px;
+            background: #172554;
             color: white;
             border: none;
-            padding: 12px 20px;
             border-radius: 8px;
             cursor: pointer;
         }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <div class="box">
+<div class="box">
 
-        <h1>📊 Lesson 3 – Designing Data Solutions</h1>
+    <h1>Google Sheet Test</h1>
 
-        <p>
-            If you can see this page, GitHub Pages is working correctly.
-        </p>
+    <label for="studentName">
+        Your name
+    </label>
 
-        <label for="studentName">
-            Your name:
-        </label>
+    <input
+        type="text"
+        id="studentName"
+        placeholder="Enter your name"
+    >
 
-        <input
-            type="text"
-            id="studentName"
-            placeholder="Enter your name"
-        >
+    <label for="answer">
+        Test answer
+    </label>
 
-        <label for="answer">
-            What is a requirement of a data solution?
-        </label>
+    <input
+        type="text"
+        id="answer"
+        placeholder="Type something"
+    >
 
-        <textarea
-            id="answer"
-            rows="5"
-            placeholder="Type your answer here..."
-        ></textarea>
+    <button onclick="submitTest()">
+        Submit Test
+    </button>
 
-        <button type="button">
-            Test Button
-        </button>
+    <div id="message"></div>
 
-    </div>
+</div>
+
+
+<script>
+
+const scriptURL =
+"https://script.google.com/a/macros/education.nsw.gov.au/s/AKfycbxbFZbzarm6qljfhnH8BcqUyZmIZqq2icKhETBBRgMBCCUQLD2wVIRZ14K9pAexXylQ/exec";
+
+
+async function submitTest() {
+
+    const studentName =
+        document.getElementById("studentName").value;
+
+    const answer =
+        document.getElementById("answer").value;
+
+    const message =
+        document.getElementById("message");
+
+
+    const data = {
+
+        studentName: studentName,
+
+        answer: answer
+
+    };
+
+
+    message.innerHTML = "Submitting...";
+
+
+    try {
+
+        await fetch(scriptURL, {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+                "Content-Type": "text/plain"
+            },
+
+            body: JSON.stringify(data)
+
+        });
+
+
+        message.innerHTML =
+            "✅ Submitted. Check the Google Sheet.";
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        message.innerHTML =
+            "❌ There was a problem submitting.";
+
+    }
+
+}
+
+</script>
 
 </body>
+
 </html>
